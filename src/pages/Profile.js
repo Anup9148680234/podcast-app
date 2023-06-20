@@ -38,7 +38,10 @@ function Profile() {
         <h1 className="uEmail">{user.email}</h1>
         <h1 className="uId">{user.uid}</h1>
       </div>
-      <Button className="uBtn" text={"Logout"} onClick={handleLogout} />
+      <div className="logOut">
+        <Button  text={"Logout"} onClick={handleLogout} />
+      </div>
+      
     </div>
   );
 }
