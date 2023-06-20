@@ -6,6 +6,7 @@ import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import Loader from "../components/common/Loader";
+import './profile.css'
 
 function Profile() {
   const user = useSelector((state) => state.user.user);
@@ -29,10 +30,15 @@ function Profile() {
   return (
     <div>
       <Header />
-      <h1>{user.name}</h1>
-      <h1>{user.email}</h1>
-      <h1>{user.uid}</h1>
-      <Button text={"Logout"} onClick={handleLogout} />
+      <div className="uDetails">
+        <div className="mainTab">
+          <p className="circle">{user.name[0]}</p>
+          <h1 className="uName">{user.name}</h1>
+        </div>
+        <h1 className="uEmail">{user.email}</h1>
+        <h1 className="uId">{user.uid}</h1>
+      </div>
+      <Button className="uBtn" text={"Logout"} onClick={handleLogout} />
     </div>
   );
 }

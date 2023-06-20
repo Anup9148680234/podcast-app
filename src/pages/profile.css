@@ -1,0 +1,43 @@
+.uDetails{
+    margin: 1rem 5rem;
+    padding: 0 auto;
+    width: 10rem;
+}
+
+.mainTab{
+    display: flex;
+
+}
+
+.circle{
+    height: 2rem;
+    width: 2rem;
+    line-height: 2rem;
+    background-color: var(--blue);
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+.uName{
+    font-weight: 500;
+}
+
+.uEmail{
+
+    margin-top: -0.5rem;
+    font-weight: 300;
+    color: gray;
+}
+
+.uId{
+
+    font-weight: 200;
+    font-size: 20px;
+    color: gray;
+}
+
+.custom-btn{
+    margin: 0 5rem;
+    width: 20rem;
+}
