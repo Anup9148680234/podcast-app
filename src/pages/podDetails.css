@@ -1,0 +1,9 @@
+.genreBox{
+    font-size: 0.9rem;
+    height: 20px;
+    width: fit-content;
+    text-align: center;
+    align-items: center;
+    border-radius: 0.2rem;
+    background-color: var(--theme);
+}

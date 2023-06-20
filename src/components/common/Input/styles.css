@@ -10,6 +10,14 @@
   margin: 1rem;
 }
 
+.genre{
+  width: 72.5vw;
+}
+
+select{
+  color: var(--purple-grey)!important;
+}
+
 .custom-input:focus {
   outline: none;
   border-color: var(--white);

@@ -5,6 +5,7 @@ import InputComponent from "../common/Input";
 import { toast } from "react-toastify";
 import Button from "../common/Button";
 import FileInput from "../common/Input/FileInput";
+import SelectGenre from '../common/Input/SelectGenre'
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { auth, db, storage } from "../../firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
@@ -14,13 +15,27 @@ function CreatePodcastForm() {
   const [desc, setDesc] = useState("");
   const [displayImage, setDisplayImage] = useState();
   const [bannerImage, setBannerImage] = useState();
+  const [selectedGenre, setSelectedGenre] = useState('');
+
+  const options = [
+    { value: 'ABSTRACT', label: 'Genre: Abstract' },
+    { value: 'COMEDY', label: 'Genre: Comedy' },
+    { value: 'NEWS', label: 'Genre: News' },
+    { value: 'HEALTH', label: 'Genre: Health' },
+    { value: 'POLITICS', label: 'Genre: Politics' },
+    { value: 'SPORTS', label: 'Genre: Sports' },
+  ];
+
+  const handleSelectChange = (event) => {
+    setSelectedGenre(event.target.value);
+  };
 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = async () => {
-    if (title && desc && displayImage && bannerImage) {
+    if (title && desc && displayImage && bannerImage && selectedGenre) {
       setLoading(true);
       // 1. Upload files -> get downloadable links
       try {
@@ -42,6 +57,7 @@ function CreatePodcastForm() {
         const podcastData = {
           title: title,
           description: desc,
+          genre:selectedGenre,
           bannerImage: bannerImageUrl,
           displayImage: displayImageUrl,
           createdBy: auth.currentUser.uid,
@@ -50,6 +66,7 @@ function CreatePodcastForm() {
         const docRef = await addDoc(collection(db, "podcasts"), podcastData);
         setTitle("");
         setDesc("");
+        setSelectedGenre("");
         setBannerImage(null);
         setDisplayImage(null);
         toast.success("Podcast Created!");
@@ -92,6 +109,13 @@ function CreatePodcastForm() {
         type="text"
         required={true}
       />
+
+      <SelectGenre 
+          options={options}
+          value={selectedGenre}
+          onChange={handleSelectChange}
+        />
+
       <FileInput
         accept={"image/*"}
         id="display-image-input"
@@ -105,6 +129,8 @@ function CreatePodcastForm() {
         fileHandleFnc={bannerImageHandle}
         text={"Banner Image Upload"}
       />
+      
+
 
       <Button
         text={loading ? "Loading..." : "Create Podcast"}

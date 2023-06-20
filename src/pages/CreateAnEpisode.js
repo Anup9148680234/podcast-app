@@ -14,6 +14,7 @@ function CreateAnEpisodePage() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [audioFile, setAudioFile] = useState();
+  
 
   const [loading, setLoading] = useState(false);
 
@@ -23,6 +24,8 @@ function CreateAnEpisodePage() {
   const audioFileHandle = (file) => {
     setAudioFile(file);
   };
+
+
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -77,6 +80,10 @@ function CreateAnEpisodePage() {
           type="text"
           required={true}
         />
+
+
+
+
         <FileInput
           accept={"audio/*"}
           id="audio-file-input"

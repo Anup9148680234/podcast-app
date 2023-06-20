@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import Button from "../components/common/Button";
 import EpisodeDetails from "../components/Podcasts/EpisodeDetails";
 import AudioPlayer from "../components/Podcasts/AudioPlayer";
+import './podDetails.css';
 
 function PodcastDetailsPage() {
   const { id } = useParams();
@@ -14,6 +15,7 @@ function PodcastDetailsPage() {
   const [podcast, setPodcast] = useState({});
   const [episodes, setEpisodes] = useState([]);
   const [playingFile, setPlayingFile] = useState("");
+
 
   console.log("ID", id);
   useEffect(() => {
@@ -76,7 +78,8 @@ function PodcastDetailsPage() {
                 margin: "1rem",
               }}
             >
-              <h1 className="podcast-title-heading">{podcast.title}</h1>
+              <h1 className="podcast-title-heading">{podcast.title} </h1>
+              <div className="genreBox">{podcast.genre}</div>
               {podcast.createdBy === auth.currentUser.uid && (
                 <Button
                   width={"200px"}
