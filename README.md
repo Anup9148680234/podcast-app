@@ -4,11 +4,13 @@ Podcast Platform developed using `React` and integrated with `Firebase`, `Redux`
 
 # Screenshots
 
-![Dashboard 1](./public/screen1.PNG "Screenshot 1")
+![Screenshot 1](./public/screen1.PNG "Screenshot 1")
 
 ![Screenshot 2](./public/screen2.PNG "Screenshot 2")
 
 ![Screenshot 3](./public/screen3.PNG "Screenshot 3")
+
+![Screenshot 4](./public/screen4.PNG "Screenshot 4")
 
 # Dependencies
 * react
